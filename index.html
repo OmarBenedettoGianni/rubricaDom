@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubrica Contatti</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>📇 Rubrica Contatti</h1>
+
+    <div class="actions">
+      <button id="toggleBtn" class="btn btn-secondary">Nascondi rubrica</button>
+      <button id="addBtn" class="btn btn-primary">+ Nuovo contatto</button>
+    </div>
+
+    <div id="tableWrapper">
+      <table id="contactsTable">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody id="contactsBody">
+          <!-- righe generate dinamicamente da main.js -->
+        </tbody>
+      </table>
+      <p id="emptyMsg" class="empty-msg" style="display:none;">Nessun contatto in rubrica.</p>
+    </div>
+  </div>
+
+  <!-- Modale per aggiungere/modificare un contatto -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h2 id="modalTitle">Nuovo contatto</h2>
+      <form id="contactForm">
+        <input type="hidden" id="contactId">
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required>
+
+        <label for="cognome">Cognome</label>
+        <input type="text" id="cognome" required>
+
+        <label for="telefono">Telefono</label>
+        <input type="tel" id="telefono" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn btn-secondary">Annulla</button>
+          <button type="submit" class="btn btn-primary">Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
