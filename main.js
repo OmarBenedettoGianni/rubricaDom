@@ -28,6 +28,13 @@ let rubrica = {
   removeContact : function (removeName){
     let filtered = this.listaContatti.filter(contatto => contatto.name !=removeName);
     this.listaContatti = filtered
+  },
+  editContact : function(nome,numero){
+    this.listaContatti.forEach(contatto=>{
+      if(contatto.name==nome){
+          contatto.number=numero
+      }
+    })
   }
 }
 
@@ -58,6 +65,16 @@ btnRemove.addEventListener('click',()=>{
     rubrica.removeContact(nameInput.value);
     nameInput.value=``
   }else{
-    alert(`inserisci il nome della persona che vuoi rimuovere`)
+    alert(`inserisci il nome del contatto che vuoi rimuovere`)
+  }
+})
+
+btnEdit.addEventListener('click',()=>{
+  if(nameInput.value !=``){
+    rubrica.editContact(nameInput.value,numberInput.value);
+    nameInput.value=``;
+    numberInput.value=``
+  }else{
+    alert(`inserisci il nome del contatto di cui vuoi modificare il numero`)
   }
 })
