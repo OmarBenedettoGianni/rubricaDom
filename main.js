@@ -1,5 +1,5 @@
 let nameInput = document.querySelector('#nameInput');
-let numberImput = document.querySelector('#numberInput');
+let numberInput = document.querySelector('#numberInput');
 let btnShow =  document.querySelector('#btnShow');
 let btnAdd =  document.querySelector('#btnAdd');
 let btnRemove =  document.querySelector('#btnRemove');
@@ -21,6 +21,13 @@ let rubrica = {
       p.innerHTML = `${contatto.name} : ${contatto.number}`;
       containerContacts.appendChild(p);
     })
+  },
+  addContact : function(newName,newNumber){
+    this.listaContatti.push({name : newName,number : newNumber})
+  },
+  removeContact : function (removeName){
+    let filtered = this.listaContatti.filter(contatto => contatto.name !=removeName);
+    this.listaContatti = filtered
   }
 }
 
@@ -33,5 +40,24 @@ btnShow.addEventListener('click',()=>{
     check=false;
     containerContacts.innerHTML =``;
      btnShow.innerHTML = `Show Contacts`;
+  }
+})
+
+btnAdd.addEventListener('click',()=>{
+  if(nameInput.value != `` && numberInput.value !=``){
+    rubrica.addContact(nameInput.value, numberInput.value);
+    nameInput.value=``;
+    numberInput.value=``
+  }else{
+    alert(`I campi non possono essere vuoti, compilali`)
+  }
+})
+
+btnRemove.addEventListener('click',()=>{
+  if(nameInput.value !=``){
+    rubrica.removeContact(nameInput.value);
+    nameInput.value=``
+  }else{
+    alert(`inserisci il nome della persona che vuoi rimuovere`)
   }
 })
