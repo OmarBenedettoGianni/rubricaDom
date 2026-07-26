@@ -3,65 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rubrica Contatti</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Rubrica</title>
+  <!-- bootstrap connection -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- connection css -->
+   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
   <div class="container">
-    <h1>📇 Rubrica Contatti</h1>
-
-    <div class="actions">
-      <button id="toggleBtn" class="btn btn-secondary">Nascondi rubrica</button>
-      <button id="addBtn" class="btn btn-primary">+ Nuovo contatto</button>
-    </div>
-
-    <div id="tableWrapper">
-      <table id="contactsTable">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Telefono</th>
-            <th>Email</th>
-            <th>Azioni</th>
-          </tr>
-        </thead>
-        <tbody id="contactsBody">
-          <!-- righe generate dinamicamente da main.js -->
-        </tbody>
-      </table>
-      <p id="emptyMsg" class="empty-msg" style="display:none;">Nessun contatto in rubrica.</p>
+    <div class="row">
+      <div class="col-12">
+        <h1>Rubrica Contatti</h1>
+      </div>
+      <div class="col-12 col-md-6">
+        <input type="text" placeholder="Name">
+      </div>
     </div>
   </div>
 
-  <!-- Modale per aggiungere/modificare un contatto -->
-  <div id="modalOverlay" class="modal-overlay hidden">
-    <div class="modal">
-      <h2 id="modalTitle">Nuovo contatto</h2>
-      <form id="contactForm">
-        <input type="hidden" id="contactId">
 
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" required>
-
-        <label for="cognome">Cognome</label>
-        <input type="text" id="cognome" required>
-
-        <label for="telefono">Telefono</label>
-        <input type="tel" id="telefono" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" required>
-
-        <div class="modal-actions">
-          <button type="button" id="cancelBtn" class="btn btn-secondary">Annulla</button>
-          <button type="submit" class="btn btn-primary">Salva</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script src="main.js"></script>
+    <!-- js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- main js -->
+    <script src="./main.js"></script>
 </body>
 </html>
