@@ -23,7 +23,8 @@ let rubrica = {
     })
   },
   addContact : function(newName,newNumber){
-    this.listaContatti.push({name : newName,number : newNumber})
+    this.listaContatti.push({name : newName,number : newNumber});
+    this.showContacts();
   },
   removeContact : function (removeName){
     let filtered = this.listaContatti.filter(contatto => contatto.name !=removeName);
@@ -53,8 +54,17 @@ btnShow.addEventListener('click',()=>{
 btnAdd.addEventListener('click',()=>{
   if(nameInput.value != `` && numberInput.value !=``){
     rubrica.addContact(nameInput.value, numberInput.value);
-    nameInput.value=``;
-    numberInput.value=``
+    if(check==false){
+      btnShow.innerHTML = `Hide Contacts`;
+      check = true
+      nameInput.value=``;
+      numberInput.value=``
+    }else{
+    check=false;
+    containerContacts.innerHTML =``;
+     btnShow.innerHTML = `Show Contacts`;
+    }
+ 
   }else{
     alert(`I campi non possono essere vuoti, compilali`)
   }
